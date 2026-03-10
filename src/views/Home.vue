@@ -58,8 +58,8 @@
               <p class="feature-desc">从零开始学习健身基础知识，掌握科学训练方法</p>
               <div class="feature-tags">
                 <el-tag size="small">基础知识</el-tag>
-                <el-tag size="small" type="success">动作教学</el-tag>
-                <el-tag size="small" type="warning">营养指导</el-tag>
+                <el-tag size="small" type="success">饮食指导</el-tag>
+                <el-tag size="small" type="warning">新手建议</el-tag>
               </div>
               <el-button class="feature-btn" type="primary" text>
                 开始学习 →
@@ -207,8 +207,7 @@ export default {
     navigateTo(feature) {
       switch (feature) {
         case 'guide':
-          this.$message.info('健身入门指南页面开发中...')
-          // this.$router.push('/guide')
+          this.$router.push('/guide')
           break
         case 'equipment':
           this.$message.info('器械分类及教学页面开发中...')
