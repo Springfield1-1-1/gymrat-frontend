@@ -45,7 +45,7 @@
       <div class="core-features">
         <el-row :gutter="30">
           <!-- 健身入门指南 -->
-          <el-col :xs="24" :sm="12" :lg="6">
+          <el-col :xs="24" :sm="12" :lg="8">
             <el-card
                 class="feature-card"
                 shadow="hover"
@@ -68,7 +68,7 @@
           </el-col>
 
           <!-- 器械分类及教学 -->
-          <el-col :xs="24" :sm="12" :lg="6">
+          <el-col :xs="24" :sm="12" :lg="8">
             <el-card
                 class="feature-card"
                 shadow="hover"
@@ -90,21 +90,44 @@
             </el-card>
           </el-col>
 
-          <!-- 自定义健身计划和饮食计划 -->
-          <el-col :xs="24" :sm="12" :lg="6">
+          <!-- 热量需求计算器 -->
+          <el-col :xs="24" :sm="12" :lg="8">
             <el-card
                 class="feature-card"
                 shadow="hover"
-                @click="navigateTo('plan')"
+                @click="navigateTo('calorie-calculator')"
+            >
+              <div class="feature-icon calorie">
+                <el-icon size="48"><Food /></el-icon>
+              </div>
+              <h3 class="feature-title">热量需求计算器</h3>
+              <p class="feature-desc">计算你的每日热量需求，科学规划饮食摄入</p>
+              <div class="feature-tags">
+                <el-tag size="small">基础代谢</el-tag>
+                <el-tag size="small" type="success">热量计算</el-tag>
+                <el-tag size="small" type="warning">营养配比</el-tag>
+              </div>
+              <el-button class="feature-btn" type="primary" text>
+                开始计算 →
+              </el-button>
+            </el-card>
+          </el-col>
+
+          <!-- 健身计划制定 -->
+          <el-col :xs="24" :sm="12" :lg="8">
+            <el-card
+                class="feature-card"
+                shadow="hover"
+                @click="navigateTo('fitness-plan')"
             >
               <div class="feature-icon plan">
                 <el-icon size="48"><Calendar /></el-icon>
               </div>
-              <h3 class="feature-title">个性化计划制定</h3>
-              <p class="feature-desc">定制专属的健身训练计划和科学饮食方案</p>
+              <h3 class="feature-title">健身计划制定</h3>
+              <p class="feature-desc">定制专属的健身训练计划，跟踪训练进度</p>
               <div class="feature-tags">
                 <el-tag size="small">训练计划</el-tag>
-                <el-tag size="small" type="success">饮食方案</el-tag>
+                <el-tag size="small" type="success">动作指导</el-tag>
                 <el-tag size="small" type="warning">进度跟踪</el-tag>
               </div>
               <el-button class="feature-btn" type="primary" text>
@@ -114,7 +137,7 @@
           </el-col>
 
           <!-- 周边门店以及教练介绍 -->
-          <el-col :xs="24" :sm="12" :lg="6">
+          <el-col :xs="24" :sm="12" :lg="8">
             <el-card
                 class="feature-card"
                 shadow="hover"
@@ -173,7 +196,8 @@ import {
   Tools,
   Calendar,
   Location,
-  SwitchButton
+  SwitchButton,
+  Food
 } from '@element-plus/icons-vue'
 
 export default {
@@ -183,7 +207,8 @@ export default {
     Tools,
     Calendar,
     Location,
-    SwitchButton
+    SwitchButton,
+    Food
   },
   data() {
     return {
@@ -212,9 +237,12 @@ export default {
         case 'equipment':
           this.$router.push('/equipment')
           break
-        case 'plan':
-          this.$message.info('个性化计划制定页面开发中...')
-          // this.$router.push('/plan')
+        case 'calorie-calculator':
+          this.$router.push('/calorie-calculator')
+          break
+        case 'fitness-plan':
+          this.$message.info('健身计划制定页面开发中...')
+          // this.$router.push('/fitness-plan')
           break
         case 'store':
           this.$message.info('周边门店及教练页面开发中...')
@@ -337,18 +365,18 @@ export default {
 
 /* 核心功能卡片 */
 .core-features {
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 
 .feature-card {
-  height: 100%;
+  height: 94%;
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
   border-radius: 12px;
   padding: 30px 20px;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 .feature-card:hover {
@@ -373,6 +401,11 @@ export default {
 
 .feature-icon.equipment {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.feature-icon.calorie {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
   color: white;
 }
 

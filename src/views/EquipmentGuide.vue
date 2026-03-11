@@ -12,7 +12,7 @@
             <el-icon><ArrowLeft /></el-icon>
             返回首页
           </el-button>
-          <h1 class="page-title">器械分类及教学</h1>
+          <h1 class="page-title">⚙️器械分类及教学</h1>
         </div>
         <div class="nav-right">
           <el-input

@@ -26,7 +26,19 @@ const routes = [
     path: '/equipment',
     name: 'equipment',
     component: () => import('@/views/EquipmentGuide.vue')
-  }
+  },
+  {
+    path: '/calorie-calculator',
+    name: 'calorieCalculator',
+    component: () => import('@/views/CalorieCalculator.vue')
+  },
+  //TODO: add routes
+  /*{
+    path: '/fitness-plan',
+    name: 'fitnessPlan',
+    component: () => import('@/views/FitnessPlan.vue')
+  }*/
+
 ]
 
 const router = createRouter({
