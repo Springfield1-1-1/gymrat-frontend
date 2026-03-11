@@ -80,9 +80,9 @@
               <h3 class="feature-title">器械分类及教学</h3>
               <p class="feature-desc">了解各类健身器械，学习正确使用方法</p>
               <div class="feature-tags">
-                <el-tag size="small">力量器械</el-tag>
-                <el-tag size="small" type="success">有氧器械</el-tag>
-                <el-tag size="small" type="warning">自由重量</el-tag>
+                <el-tag size="small">背肩器械</el-tag>
+                <el-tag size="small" type="success">胸部器械</el-tag>
+                <el-tag size="small" type="danger">臀腿器械</el-tag>
               </div>
               <el-button class="feature-btn" type="primary" text>
                 查看器械 →
@@ -210,8 +210,7 @@ export default {
           this.$router.push('/guide')
           break
         case 'equipment':
-          this.$message.info('器械分类及教学页面开发中...')
-          // this.$router.push('/equipment')
+          this.$router.push('/equipment')
           break
         case 'plan':
           this.$message.info('个性化计划制定页面开发中...')
