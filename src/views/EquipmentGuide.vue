@@ -131,7 +131,7 @@
     <!-- 返回首页浮动按钮 -->
     <div class="floating-back-btn" @click="goToHome">
       <el-tooltip content="返回首页" placement="left">
-        <el-button circle type="primary" size="large">
+        <el-button circle type="success" size="large">
           <el-icon><HomeFilled /></el-icon>
         </el-button>
       </el-tooltip>

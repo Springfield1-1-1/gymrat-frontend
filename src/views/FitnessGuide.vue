@@ -415,7 +415,7 @@
     <div class="floating-actions">
       <el-tooltip content="返回首页" placement="left">
         <el-button circle type="success" size="large" @click="goToHome">
-          <el-icon><Back /></el-icon>
+          <el-icon><HomeFilled /></el-icon>
         </el-button>
       </el-tooltip>
       <el-tooltip content="回到顶部" placement="left">
@@ -444,7 +444,7 @@ import {
   Clock, User, Star, ArrowDown, Menu,
   TrendCharts, Odometer, Food, InfoFilled,
   Close, Calendar, Document, Headset, Setting,
-  Finished, Top, Share, Back
+  Finished, Top, Share, Back, HomeFilled
 } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import heroBg from '@/assets/guide/hero-bg.jpg'
