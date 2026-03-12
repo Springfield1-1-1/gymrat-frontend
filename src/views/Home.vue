@@ -241,8 +241,7 @@ export default {
           this.$router.push('/calorie-calculator')
           break
         case 'fitness-plan':
-          this.$message.info('健身计划制定页面开发中...')
-          // this.$router.push('/fitness-plan')
+          this.$router.push('/fitness-plan')
           break
         case 'store':
           this.$message.info('周边门店及教练页面开发中...')
@@ -285,7 +284,7 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #c0d2ea 0%, #e2c4c3 100%);
 }
 
 /* 头部样式 */

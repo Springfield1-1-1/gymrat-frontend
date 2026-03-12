@@ -574,7 +574,7 @@ onUnmounted(() => {
 <style scoped>
 .fitness-guide-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #c0d2ea 0%, #e2c4c3 100%);
   padding-bottom: 60px;
 }
 

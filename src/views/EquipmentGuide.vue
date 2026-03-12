@@ -255,7 +255,7 @@ onMounted(() => {
 <style scoped>
 .equipment-guide-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: linear-gradient(135deg, #c0d2ea 0%, #e2c4c3 100%);
 }
 
 /* 顶部导航栏 */

@@ -32,12 +32,12 @@ const routes = [
     name: 'calorieCalculator',
     component: () => import('@/views/CalorieCalculator.vue')
   },
-  //TODO: add routes
-  /*{
+  {
     path: '/fitness-plan',
     name: 'fitnessPlan',
     component: () => import('@/views/FitnessPlan.vue')
-  }*/
+  }
+  //TODO: add routes
 
 ]
 

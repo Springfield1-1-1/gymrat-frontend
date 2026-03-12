@@ -413,7 +413,7 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #c0d2ea 0%, #e2c4c3 100%);
 }
 
 /* 顶部导航栏 */
