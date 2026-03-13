@@ -3,7 +3,7 @@
     <!-- 导航栏 -->
     <div class="guide-nav">
       <div class="nav-content">
-        <h2 class="nav-title">健身入门指南</h2>
+        <h2 class="nav-title">📑 健身入门指南</h2>
         <div class="nav-links">
           <a
               v-for="(chapter, index) in chapters"

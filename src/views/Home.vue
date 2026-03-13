@@ -126,8 +126,8 @@
               <h3 class="feature-title">健身计划制定</h3>
               <p class="feature-desc">定制专属的健身训练计划，跟踪训练进度</p>
               <div class="feature-tags">
-                <el-tag size="small">训练计划</el-tag>
-                <el-tag size="small" type="success">动作指导</el-tag>
+                <el-tag size="small">计划制定</el-tag>
+                <el-tag size="small" type="success">精确规划</el-tag>
                 <el-tag size="small" type="warning">进度跟踪</el-tag>
               </div>
               <el-button class="feature-btn" type="primary" text>
@@ -150,16 +150,37 @@
               <p class="feature-desc">查找附近的健身场所，预约专业教练指导</p>
               <div class="feature-tags">
                 <el-tag size="small">附近门店</el-tag>
-                <el-tag size="small" type="success">专业教练</el-tag>
-                <el-tag size="small" type="warning">课程预约</el-tag>
+                <el-tag size="small" type="danger">专业教练</el-tag>
               </div>
               <el-button class="feature-btn" type="primary" text>
                 探索周边 →
               </el-button>
             </el-card>
           </el-col>
+
+          <!-- 更多功能（开发中） -->
+          <el-col :xs="24" :sm="12" :lg="8">
+            <el-card
+                class="feature-card coming-soon"
+                shadow="hover"
+            >
+              <div class="feature-icon coming">
+                <el-icon size="48"><Tools /></el-icon>
+              </div>
+              <h3 class="feature-title">开发中</h3>
+              <p class="feature-desc">更多精彩功能正在开发中，敬请期待</p>
+              <div class="feature-tags">
+                <el-tag size="small" type="info">开发中</el-tag>
+                <el-tag size="small" type="info">即将上线</el-tag>
+              </div>
+              <el-button class="feature-btn" type="info" text disabled>
+                敬请期待 🚧
+              </el-button>
+            </el-card>
+          </el-col>
         </el-row>
       </div>
+
 
       <!-- 用户状态提示 -->
       <div class="user-status" v-if="!userInfo.username">
@@ -244,8 +265,7 @@ export default {
           this.$router.push('/fitness-plan')
           break
         case 'store':
-          this.$message.info('周边门店及教练页面开发中...')
-          // this.$router.push('/store')
+          this.$router.push('/gym-stores')
           break
       }
     },

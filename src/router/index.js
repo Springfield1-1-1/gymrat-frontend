@@ -36,8 +36,13 @@ const routes = [
     path: '/fitness-plan',
     name: 'fitnessPlan',
     component: () => import('@/views/FitnessPlan.vue')
+  },
+  {
+    path: '/gym-stores',
+    name: 'gymStores',
+    component: () => import('@/views/GymStores.vue')
+
   }
-  //TODO: add routes
 
 ]
 
