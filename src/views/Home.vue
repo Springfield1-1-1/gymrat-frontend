@@ -18,6 +18,9 @@
               </span>
               <template #dropdown>
                 <el-dropdown-menu>
+                  <el-dropdown-item command="profile">
+                    <el-icon><User /></el-icon>个人中心
+                  </el-dropdown-item>
                   <el-dropdown-item command="logout">
                     <el-icon><SwitchButton /></el-icon>退出登录
                   </el-dropdown-item>
@@ -158,23 +161,25 @@
             </el-card>
           </el-col>
 
-          <!-- 更多功能（开发中） -->
+          <!-- 个人中心 -->
           <el-col :xs="24" :sm="12" :lg="8">
             <el-card
-                class="feature-card coming-soon"
+                class="feature-card"
                 shadow="hover"
+                @click="navigateTo('profile')"
             >
-              <div class="feature-icon coming">
-                <el-icon size="48"><Tools /></el-icon>
+              <div class="feature-icon profile">
+                <el-icon size="48"><User /></el-icon>
               </div>
-              <h3 class="feature-title">开发中</h3>
-              <p class="feature-desc">更多精彩功能正在开发中，敬请期待</p>
+              <h3 class="feature-title">个人中心</h3>
+              <p class="feature-desc">管理个人信息，查看身体数据，定制专属资料</p>
               <div class="feature-tags">
-                <el-tag size="small" type="info">开发中</el-tag>
-                <el-tag size="small" type="info">即将上线</el-tag>
+                <el-tag size="small">信息管理</el-tag>
+                <el-tag size="small" type="success">身体数据</el-tag>
+                <el-tag size="small" type="warning">个人主页</el-tag>
               </div>
-              <el-button class="feature-btn" type="info" text disabled>
-                敬请期待 🚧
+              <el-button class="feature-btn" type="primary" text>
+                进入中心 →
               </el-button>
             </el-card>
           </el-col>
@@ -218,7 +223,8 @@ import {
   Calendar,
   Location,
   SwitchButton,
-  Food
+  Food,
+  User
 } from '@element-plus/icons-vue'
 
 export default {
@@ -229,7 +235,8 @@ export default {
     Calendar,
     Location,
     SwitchButton,
-    Food
+    Food,
+    User
   },
   data() {
     return {
@@ -267,12 +274,17 @@ export default {
         case 'store':
           this.$router.push('/gym-stores')
           break
+        case 'profile':
+          this.$router.push('/profile')
+          break
       }
     },
 
     // 处理下拉菜单命令
     handleCommand(command) {
-      if (command === 'logout') {
+      if (command === 'profile') {
+        this.$router.push('/profile')
+      } else if (command === 'logout') {
         this.logout()
       }
     },
@@ -419,7 +431,7 @@ export default {
 }
 
 .feature-icon.equipment {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #ee2b2b 0%, #f5576c 100%);
   color: white;
 }
 
@@ -435,6 +447,11 @@ export default {
 
 .feature-icon.store {
   background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: white;
+}
+
+.feature-icon.profile {
+  background: linear-gradient(135deg, #e0d2d2 0%, #94896b 100%);
   color: white;
 }
 

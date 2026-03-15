@@ -42,8 +42,13 @@ const routes = [
     name: 'gymStores',
     component: () => import('@/views/GymStores.vue')
 
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: () => import('@/views/UserProfile.vue'),
+    meta: { requiresAuth: true }
   }
-
 ]
 
 const router = createRouter({
