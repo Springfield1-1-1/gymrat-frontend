@@ -18,6 +18,9 @@
               </span>
               <template #dropdown>
                 <el-dropdown-menu>
+                  <el-dropdown-item command="admin" v-if="userInfo.role === 'admin'">
+                    <el-icon><Monitor /></el-icon>管理后台
+                  </el-dropdown-item>
                   <el-dropdown-item command="profile">
                     <el-icon><User /></el-icon>个人中心
                   </el-dropdown-item>
@@ -224,7 +227,8 @@ import {
   Location,
   SwitchButton,
   Food,
-  User
+  User,
+  Monitor
 } from '@element-plus/icons-vue'
 
 export default {
@@ -236,7 +240,8 @@ export default {
     Location,
     SwitchButton,
     Food,
-    User
+    User,
+    Monitor
   },
   data() {
     return {
@@ -282,7 +287,9 @@ export default {
 
     // 处理下拉菜单命令
     handleCommand(command) {
-      if (command === 'profile') {
+      if (command === 'admin') {
+        this.$router.push('/admin/dashboard')
+      } else if (command === 'profile') {
         this.$router.push('/profile')
       } else if (command === 'logout') {
         this.logout()

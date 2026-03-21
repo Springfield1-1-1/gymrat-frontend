@@ -88,7 +88,13 @@ export default {
     // 检查是否已登录
     const token = localStorage.getItem('token')
     if (token) {
-      this.$router.push('/')
+      const user = JSON.parse(localStorage.getItem('user') || '{}')
+      // 根据角色跳转
+      if (user.role === 'admin') {
+        this.$router.push('/admin/dashboard')
+      } else {
+        this.$router.push('/')
+      }
     }
   },
   methods: {
@@ -123,9 +129,13 @@ export default {
 
           this.$message.success('登录成功')
 
-          // 跳转到首页
+          // 根据角色跳转到不同页面
           setTimeout(() => {
-            this.$router.push('/')
+            if (response.data.role === 'admin') {
+              this.$router.push('/admin/dashboard')
+            } else {
+              this.$router.push('/')
+            }
           }, 500)
         } else {
           this.$message.error(response.message || '登录失败')
