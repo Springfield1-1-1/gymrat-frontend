@@ -368,7 +368,7 @@ export default {
 .pagination-container {
   margin-top: 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 /* 响应式设计 */
