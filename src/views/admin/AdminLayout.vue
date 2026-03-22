@@ -1,11 +1,10 @@
-NEW_FILE_CODE
 <template>
   <div class="admin-layout">
     <!-- 顶部导航栏（固定） -->
     <div class="admin-header">
       <div class="header-content">
         <div class="header-left">
-          <h1 class="admin-title">🛡️ 后台</h1>
+          <h1 class="admin-title">🛡️ 管理后台</h1>
         </div>
         <div class="header-right">
           <el-button type="primary" link @click="goToHome">
@@ -22,7 +21,9 @@ NEW_FILE_CODE
             </span>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item command="profile">个人中心</el-dropdown-item>
+                <el-dropdown-item command="profile">
+                  <el-icon><User /></el-icon>个人中心
+                </el-dropdown-item>
                 <el-dropdown-item command="logout">
                   <el-icon><SwitchButton /></el-icon>退出登录
                 </el-dropdown-item>
@@ -109,7 +110,7 @@ export default {
       try {
         this.userInfo = JSON.parse(userStr)
         if (this.userInfo.role !== 'admin') {
-          this.$message.error('无权访问后台')
+          this.$message.error('无权访问管理后台')
           this.$router.push('/')
         }
       } catch (error) {

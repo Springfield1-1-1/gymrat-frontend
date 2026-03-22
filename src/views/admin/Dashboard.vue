@@ -3,108 +3,53 @@
     <!-- 数据卡片 -->
     <el-row :gutter="20">
       <el-col :xs="24" :sm="12" :md="6">
-        <el-card class="stat-card">
+        <el-card class="stat-card" @click="goToUsers">
           <div class="stat-icon user">
             <el-icon><User /></el-icon>
           </div>
           <div class="stat-info">
-            <div class="stat-value">1,234</div>
+            <div class="stat-value">{{ overviewData.totalUsers }}</div>
             <div class="stat-label">总用户数</div>
           </div>
         </el-card>
       </el-col>
 
       <el-col :xs="24" :sm="12" :md="6">
-        <el-card class="stat-card">
+        <el-card class="stat-card" @click="goToEquipment">
           <div class="stat-icon equipment">
             <el-icon><Tools /></el-icon>
           </div>
           <div class="stat-info">
-            <div class="stat-value">567</div>
+            <div class="stat-value">{{ overviewData.totalEquipment }}</div>
             <div class="stat-label">器械数量</div>
           </div>
         </el-card>
       </el-col>
 
       <el-col :xs="24" :sm="12" :md="6">
-        <el-card class="stat-card">
+        <el-card class="stat-card" @click="goToStores">
           <div class="stat-icon store">
             <el-icon><Location /></el-icon>
           </div>
           <div class="stat-info">
-            <div class="stat-value">89</div>
+            <div class="stat-value">{{ overviewData.totalStores }}</div>
             <div class="stat-label">合作门店</div>
           </div>
         </el-card>
       </el-col>
 
       <el-col :xs="24" :sm="12" :md="6">
-        <el-card class="stat-card">
+        <el-card class="stat-card" @click="goToCoaches">
           <div class="stat-icon coach">
             <el-icon><UserFilled /></el-icon>
           </div>
           <div class="stat-info">
-            <div class="stat-value">234</div>
+            <div class="stat-value">{{ overviewData.totalCoaches }}</div>
             <div class="stat-label">认证教练</div>
           </div>
         </el-card>
       </el-col>
     </el-row>
-
-    <!-- 快捷操作 -->
-    <el-card class="quick-actions">
-      <template #header>
-        <div class="card-header">
-          <span>快捷操作</span>
-        </div>
-      </template>
-      <el-row :gutter="20">
-        <el-col :xs="24" :sm="8">
-          <el-button
-              type="primary"
-              size="large"
-              @click="$router.push('/admin/users')"
-              style="width: 100%"
-          >
-            <el-icon><User /></el-icon>
-            用户管理
-          </el-button>
-        </el-col>
-        <el-col :xs="24" :sm="8">
-          <el-button
-              type="success"
-              size="large"
-              @click="$router.push('/admin/equipment')"
-              style="width: 100%"
-          >
-            <el-icon><Tools /></el-icon>
-            器械管理
-          </el-button>
-        </el-col>
-        <el-col :xs="24" :sm="8">
-          <el-button
-              type="warning"
-              size="large"
-              @click="$router.push('/admin/stores')"
-              style="width: 100%"
-          >
-            <el-icon><Location /></el-icon>
-            门店管理
-          </el-button>
-        </el-col>
-      </el-row>
-    </el-card>
-
-    <!-- 待办事项 -->
-    <el-card class="todo-list">
-      <template #header>
-        <div class="card-header">
-          <span>待办事项</span>
-          <el-badge :value="3" class="badge" />
-        </div>
-      </template>
-      <el-empty description="暂无待办事项" />
-    </el-card>
   </div>
 </template>
 
@@ -123,6 +68,54 @@ export default {
     UserFilled,
     Tools,
     Location
+  },
+  data() {
+    return {
+      overviewData: {
+        totalUsers: 0,
+        totalEquipment: 0,
+        totalStores: 0,
+        totalCoaches: 0
+      }
+    }
+  },
+  mounted() {
+    this.fetchOverviewData()
+  },
+  methods: {
+    async fetchOverviewData() {
+      try {
+        const token = localStorage.getItem('token')
+
+        const response = await fetch('/api/admin/data-overview', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        })
+
+        const result = await response.json()
+
+        if (result.code === 200) {
+          this.overviewData = result.data
+        }
+      } catch (error) {
+        console.error('Error fetching overview data:', error)
+      }
+    },
+    goToUsers() {
+      this.$router.push('/admin/users')
+    },
+    goToEquipment() {
+      this.$router.push('/admin/equipment')
+    },
+    goToStores() {
+      this.$router.push('/admin/stores')
+    },
+    goToCoaches() {
+      this.$router.push('/admin/users')
+    }
   }
 }
 </script>
@@ -188,23 +181,5 @@ export default {
 .stat-label {
   font-size: 14px;
   color: #6b7280;
-}
-
-.quick-actions {
-  margin-top: 20px;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.todo-list {
-  margin-top: 20px;
-}
-
-.badge {
-  margin-left: 10px;
 }
 </style>
