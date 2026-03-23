@@ -440,6 +440,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 import {
   Clock, User, Star, ArrowDown, Menu,
   TrendCharts, Odometer, Food, InfoFilled,
@@ -483,6 +484,8 @@ const chapters = ref([
     tags: ['误区', '建议', '新手']
   }
 ])
+
+const router = useRouter()
 
 // 滚动进度
 const scrollProgress = ref(0)
@@ -535,7 +538,7 @@ const shareGuide = () => {
 
 // 返回首页
 const goToHome = () => {
-  window.location.href = 'http://localhost:3000/'
+  router.push('/')
 }
 
 // 处理滚动事件
