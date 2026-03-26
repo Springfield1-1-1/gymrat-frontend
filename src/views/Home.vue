@@ -216,6 +216,8 @@
         <p class="contact">如有问题请联系：+86 18350232283</p>
       </div>
     </el-footer>
+    <!-- 客服聊天组件 -->
+    <CustomerServiceChat />
   </div>
 </template>
 
@@ -230,6 +232,7 @@ import {
   User,
   Monitor
 } from '@element-plus/icons-vue'
+import CustomerServiceChat from '@/components/CustomerServiceChat.vue'
 
 export default {
   name: 'HomePage',
@@ -241,7 +244,8 @@ export default {
     SwitchButton,
     Food,
     User,
-    Monitor
+    Monitor,
+    CustomerServiceChat
   },
   data() {
     return {

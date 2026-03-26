@@ -65,6 +65,11 @@
             <el-icon><Location /></el-icon>
             <span>门店管理</span>
           </el-menu-item>
+
+          <el-menu-item index="/customer-service">
+            <el-icon><Headset /></el-icon>
+            <span>客服工作平台</span>
+          </el-menu-item>
         </el-menu>
       </div>
 
